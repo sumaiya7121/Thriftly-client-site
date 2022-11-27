@@ -10,7 +10,15 @@ import Main from '../Layout/Main'
 import Blog from '../Pages/Blog'
 import SingleCategory from '../Pages/CategorySection/SingleCategory'
 import PrivateRoute from './PrivateRoute'
-import Dashboard from '../Pages/Dashboard/Dashboard'
+import Dashboard from '../Pages/Dashboard/MyOrders'
+import DashboardLayout from '../Layout/DashboardLayout'
+import AllUsers from '../Pages/Dashboard/AllUsers'
+import AdminRoute from './AdminRoute'
+import AddSeller from '../Pages/Dashboard/AddaProduct'
+import AddaProduct from '../Pages/Dashboard/AddaProduct'
+import MyProducts from '../Pages/Dashboard/MyProducts'
+import AllSellers from '../Pages/Dashboard/AllSellers'
+import AllBuyers from '../Pages/Dashboard/AllBuyers'
 
 const router = createBrowserRouter([
   {
@@ -40,10 +48,53 @@ const router = createBrowserRouter([
     loader:({params})=>fetch(`http://localhost:4000/categories/${params.name}`)
       }
     ],
+
   },
   {
     path:'/dashboard',
-    element:<Dashboard></Dashboard>
+    element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+    children:[
+
+{
+path:'/dashboard/myorders',
+element:<Dashboard></Dashboard>
+
+},
+{
+path:'/dashboard/allusers',
+element:<AllUsers></AllUsers>
+
+},
+{
+path:'/dashboard/addproduct',
+element:<AddaProduct></AddaProduct>
+
+},
+{
+path:'/dashboard/myproducts',
+element:<MyProducts></MyProducts>
+
+},
+
+{
+path:'/dashboard/allsellers',
+element:<AllSellers></AllSellers>
+
+},
+
+{
+path:'/dashboard/allbuyers',
+element:<AllBuyers></AllBuyers>
+
+},
+
+
+
+
+
+
+
+    ]
   }
 ])
 

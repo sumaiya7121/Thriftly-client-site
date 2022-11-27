@@ -61,9 +61,9 @@ body: JSON.stringify(booking)
             To book the book please fill up the form!
           </h3>
      <form onSubmit={handleModal}>
-        <input name="name" type="text"  defaultValue={user?.displayName} disabled placeholder="Your Name" className="input input-bordered w-full max-w-full mb-2" />
+        <input name="name" type="text"  defaultValue={user?.displayName} placeholder="Your Name" className="input input-bordered w-full max-w-full mb-2" />
         <input name="email" defaultValue={user?.email} disabled type="text" placeholder="Email Address" className="input input-bordered w-full max-w-full mb-2" />
-        <input name="item" type="text" placeholder="Item name" className="input input-bordered w-full max-w-full mb-2" />
+        <input  name="item" type="text" placeholder="Item name" className="input input-bordered w-full max-w-full mb-2" />
         <input name="price" type="text" placeholder=" price" className="input input-bordered w-full max-w-full mb-2" />
         <input name="phone" type="text" placeholder="phone numbe" className="input input-bordered w-full max-w-full mb-2" />
           <input name="location" type="text" placeholder="Meeting location" className="input input-bordered w-full max-w-full mb-2" />

@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState} from 'react'
 import toast from 'react-hot-toast'
 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import PrimaryButton from '../../Components/Button/PrimaryButton'
 import { AuthContext } from '../../contexts/AuthProvider'
+import useToken from '../../Hooks/useToken'
 
 const Login = () => {
 
@@ -13,18 +14,28 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/'
 
   const { signin,signInWithGoogle } = useContext(AuthContext)
+ const[loginUserEmail,setLoginUserEmail]= useState('');
+ const [token] =useToken(loginUserEmail)
+
+if(token){
+    navigate(from, { replace: true })
+}
 
     const handleLogin= e=>{
 
-        e.preventDefault();
+ e.preventDefault();
  const email = e.target.email.value;
  const password = e.target.password.value;
  console.log(email,password);
 
+
+
 signin(email, password)
       .then(result => {
         toast.success('Login Success!')
-        navigate(from, { replace: true })
+         navigate(from, { replace: true })
+        setLoginUserEmail(email)
+      
         console.log(result.user)
       })
       .catch(error => toast.error('Something Went wrong!'))
@@ -32,10 +43,31 @@ signin(email, password)
   // Google Signin
   const handleGoogleSignin = () => {
     signInWithGoogle().then(result => {
-      console.log(result.user)
-      navigate(from, { replace: true })
+   const user= result.user;
+      console.log(user);
+      googleLoggedInUseInfo(user.displayName, user.email);
+
     })
   }
+    const googleLoggedInUseInfo = (name, email) => {
+    const info = { name, email, role: "Buyer" };
+    fetch("http://localhost:4000/user", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(info),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+        //  useToken(email);
+        navigate(from, { replace: true })
+          toast.success("User Logged In Successfully");
+          console.log(data);
+        }
+      });
+  };
   return (
     <div className='flex justify-center items-center pt-8'>
       <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900'>
