@@ -64,7 +64,7 @@ There are undoubtedly more pieces of state that we could identify, but these are
 				<p className="px-4 py-6 pt-0 ml-4 -mt-4 dark:text-gray-400">
                  React
                     <br/><br/>
-.<br/><br/>
+React is one of the most popular JavaScript projects with 160k stars on GitHub. It’s developed and maintained by Facebook, and it’s used internally in many of their projects. Additionally, it powers over 2 million websites, according to BuiltWith‘s usage statistics.<br/><br/>
 
 Vue<br/><br/>
 Out of the three frameworks, Vue has the most stars on GitHub, with 176k stars. The project is developed and led by ex-Googler Evan You. It’s a very strong, independent project in the open-source community and is used by over 1 million websites, according to BuiltWith.<br/><br/>
