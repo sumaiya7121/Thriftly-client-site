@@ -72,7 +72,7 @@ Out of the three frameworks, Vue has the most stars on GitHub, with 176k stars. 
 Angular<br/><br/>
 Angular is developed by Google, but surprisingly it’s not used in some of their flagship products such as Search or Youtube. It’s often used in enterprise projects, and it powers over 97,000 websites based on BuiltWith‘s data.<br/><br/>
 
-It’s the least starred among the three frameworks, with 68k stars on GitHub. However, when switching from Angular 1 to Angular 2, they created an entirely new repository instead of continuing the AngularJS project, which also has 59k stars. </p>
+ </p>
 			</details>
 		</div>
 	</div>
