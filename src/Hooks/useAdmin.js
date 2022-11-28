@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 const useAdmin = email => {
     const [isAdmin, setIsAdmin] = useState(false);
     const [isAdminLoading, setIsAdminLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:4000/users/admin/${email}`)
+            fetch(`https://thriftly-server.vercel.app/users/admin/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

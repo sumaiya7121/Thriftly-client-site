@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import PrimaryButton from "../../Components/Button/PrimaryButton";
 import Confirmation from "../../Components/Shared/Confirmation";
 
 const AllUsers = () => {
@@ -13,14 +12,14 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:4000/users");
+      const res = await fetch("https://thriftly-server.vercel.app/users");
       const data = await res.json();
       return data;
     },
   });
 
   // const handleMakeAdmin = (id) => {
-  //   fetch(`http://localhost:4000/users/admin/${id}`, {
+  //   fetch(`https://thriftly-server.vercel.app/users/admin/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -36,7 +35,7 @@ const AllUsers = () => {
   // };
 
   const handleDelete = (user) => {
-    fetch(`http://localhost:4000/users/${user._id}`, {
+    fetch(`https://thriftly-server.vercel.app/users/${user._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

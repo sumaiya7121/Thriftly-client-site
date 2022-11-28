@@ -10,7 +10,7 @@ const Categories = () => {
 
     useEffect(()=>{
 
-        fetch('http://localhost:4000/category')
+        fetch('https://thriftly-server.vercel.app/category')
         .then(res=>res.json())
         .then(data=>setCategoryData(data))
 

@@ -13,7 +13,7 @@ const MyProducts = () => {
     queryKey: ["categories", user?.email],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:4000/categories?email=${user?.email}`
+        `https://thriftly-server.vercel.app/categories?email=${user?.email}`
       );
       const data =await res.json();
       return data;
@@ -21,7 +21,7 @@ const MyProducts = () => {
   });
 
   const handleAdvertise = (id) => {
-    fetch(`http://localhost:4000/categories/${id}`, {
+    fetch(`https://thriftly-server.vercel.app/categories/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ const MyProducts = () => {
   }
 
    const handleDelete = (id) => {
-    fetch(`http://localhost:4000/categories/${id}`, {
+    fetch(`https://thriftly-server.vercel.app/categories/${id}`, {
       method: "DELETE",
   
     })

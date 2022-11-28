@@ -1,10 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import Navbar from '../Components/Shared/Navbar'
+import PrimaryButton from "../Components/Button/PrimaryButton";
 import { AuthContext } from "../contexts/AuthProvider";
 import useAdmin from "../Hooks/useAdmin";
-import axios from "axios";
-import PrimaryButton from "../Components/Button/PrimaryButton";
 
 
 const DashboardLayout = () => {
@@ -13,7 +11,7 @@ const [isAdmin] =useAdmin(user?.email);
 
 const [loggedInUser, setLoggedInUser] = useState([]);
   useEffect(() => {
-fetch(`http://localhost:4000/users/${user?.email}`)
+fetch(`https://thriftly-server.vercel.app/users/${user?.email}`)
 .then(res=>res.json())
 .then(data=>setLoggedInUser(data))
 

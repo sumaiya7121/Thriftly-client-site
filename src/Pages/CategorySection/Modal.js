@@ -27,7 +27,7 @@ const handleModal =(e) =>{
     location
  }
 console.log(booking);
-fetch('http://localhost:4000/bookings',{
+fetch('https://thriftly-server.vercel.app/bookings',{
 
 method:'POST',
 headers:{

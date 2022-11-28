@@ -56,7 +56,7 @@ const Signup = () => {
 const saveUserDb =(name,email,role) =>{
 
 const user ={name,email,role};
-fetch('http://localhost:4000/users',{
+fetch('https://thriftly-server.vercel.app/users',{
 
 method:'POST',
 headers:{
@@ -88,7 +88,7 @@ body:JSON.stringify(user)
 // goole logged in user set on DB start
   const googleLoggedInUseInfo = (name, email) => {
     const info = { name, email, role: "Buyer" };
-    fetch("http://localhost:4000/user", {
+    fetch("https://thriftly-server.vercel.app/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",

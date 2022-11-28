@@ -1,4 +1,4 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast'
 
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -51,7 +51,7 @@ signin(email, password)
   }
     const googleLoggedInUseInfo = (name, email) => {
     const info = { name, email, role: "Buyer" };
-    fetch("http://localhost:4000/user", {
+    fetch("https://thriftly-server.vercel.app/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -48,7 +48,7 @@ const AddaProduct = () => {
     };
     console.log(service);
 
-    fetch('http://localhost:4000/categories',{
+    fetch('https://thriftly-server.vercel.app/categories',{
         method:'POST',
         headers:{
             'content-type':'application/json'

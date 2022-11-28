@@ -1,24 +1,22 @@
 import React from 'react'
 import { createBrowserRouter } from 'react-router-dom'
 
-import Home from '../Pages/Home'
 import ErrorPage from '../Pages/Errorpage'
+import Home from '../Pages/Home'
 import Login from '../Pages/Login/Login'
 import Signup from '../Pages/Login/Signup'
 
+import DashboardLayout from '../Layout/DashboardLayout'
 import Main from '../Layout/Main'
 import Blog from '../Pages/Blog'
 import SingleCategory from '../Pages/CategorySection/SingleCategory'
-import PrivateRoute from './PrivateRoute'
-import Dashboard from '../Pages/Dashboard/MyOrders'
-import DashboardLayout from '../Layout/DashboardLayout'
-import AllUsers from '../Pages/Dashboard/AllUsers'
-import AdminRoute from './AdminRoute'
-import AddSeller from '../Pages/Dashboard/AddaProduct'
 import AddaProduct from '../Pages/Dashboard/AddaProduct'
-import MyProducts from '../Pages/Dashboard/MyProducts'
-import AllSellers from '../Pages/Dashboard/AllSellers'
 import AllBuyers from '../Pages/Dashboard/AllBuyers'
+import AllSellers from '../Pages/Dashboard/AllSellers'
+import AllUsers from '../Pages/Dashboard/AllUsers'
+import Dashboard from '../Pages/Dashboard/MyOrders'
+import MyProducts from '../Pages/Dashboard/MyProducts'
+import PrivateRoute from './PrivateRoute'
 
 const router = createBrowserRouter([
   {
@@ -45,7 +43,7 @@ const router = createBrowserRouter([
       {
     path:'/categories/:name',
     element:<PrivateRoute><SingleCategory></SingleCategory></PrivateRoute>,
-    loader:({params})=>fetch(`http://localhost:4000/categories/${params.name}`)
+    loader:({params})=>fetch(`https://thriftly-server.vercel.app/categories/${params.name}`)
       }
     ],
 
