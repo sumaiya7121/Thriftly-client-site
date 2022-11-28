@@ -73,7 +73,7 @@ const Section = () => {
                       FREE Shipping & More
                     </h4>
                     <p className="mt-2 dark:text-gray-400">
-                    When you've found the books you want we'll ship qualifying orders to your door for FREE in 100% recyclable packaging. If there is no demand for a book, we will donate it to charity, or we'll recycle it.
+           
                     </p>
                   </div>
                 </div>
