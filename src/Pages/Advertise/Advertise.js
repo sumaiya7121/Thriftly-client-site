@@ -33,7 +33,7 @@ const Advertise = () => {
           <h2 className="my-10 font-bold text-4xl">Advertised Products</h2>
           <div className="">
             {advertised.map((product) => (
-              <AdvertiseCard>
+              <AdvertiseCard
                 key={product._id}
                 product={product}
                 setProduct={setProduct}>

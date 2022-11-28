@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import PrimaryButton from "../../Components/Button/PrimaryButton";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const AddaProduct = () => {
+   const{user}=useContext(AuthContext)
    const navigate = useNavigate();
   const handleAddService = (e) => {
     e.preventDefault();
@@ -34,6 +36,7 @@ const AddaProduct = () => {
       yearOfUse,
       location,
       sellerName,
+      sellerEmail:user?.email,
       sellerPhoneNumber,
       status,
       categoryName,
@@ -70,7 +73,7 @@ const AddaProduct = () => {
   };
   return (
     <div>
-      <h2 className="text-3xl font-bold text-orange-600 text-center">
+      <h2 className="text-3xl font-bold text-pink-600 text-center">
         Please Add a New Product
       </h2>
       <div>
@@ -169,6 +172,14 @@ const AddaProduct = () => {
             type="text"
             name="sellerPhoneNumber"
             placeholder="Phone number"
+            className="input input-bordered w-full"
+
+          ></input>
+           <input
+            type="email"
+            defaultValue={user?.email}
+            name="condition"
+            readOnly
             className="input input-bordered w-full"
 
           ></input>

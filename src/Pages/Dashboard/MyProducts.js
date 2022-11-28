@@ -6,17 +6,16 @@ import { AuthContext } from "../../contexts/AuthProvider";
 
 const MyProducts = () => {
   const { user,loading } = useContext(AuthContext);
+
+
   const {
-    data: myProducts = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+    data: products = [],isLoading,refetch,} = useQuery({
     queryKey: ["categories", user?.email],
     queryFn: async () => {
       const res = await fetch(
         `http://localhost:4000/categories?email=${user?.email}`
       );
-      const data = res.json();
+      const data =await res.json();
       return data;
     },
   });
@@ -42,6 +41,22 @@ const MyProducts = () => {
     return <Spinner></Spinner>;
   }
 
+   const handleDelete = (id) => {
+    fetch(`http://localhost:4000/categories/${id}`, {
+      method: "DELETE",
+  
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if(data.deletedCount>0){
+          toast.success(`${user.name}  Deleted Successfully`);
+           refetch();
+        }
+      
+       
+      });
+  };
+
   return (
     <div>
       <h2 className="text-4xl font-bold mb-10">My Products</h2>
@@ -58,7 +73,7 @@ const MyProducts = () => {
             </tr>
           </thead>
           <tbody>
-            {myProducts.map((product, i) => (
+            {products.map((product, i) => (
               <tr key={product._id} className="hover">
                 <th>{i + 1}</th>
                 <td>{product.name}</td>
@@ -79,7 +94,7 @@ const MyProducts = () => {
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-sm btn-error text-white">
+                  <button onClick={()=> handleDelete(product._id)} className="btn btn-sm btn-error text-white">
                     Delete
                   </button>
                 </td>

@@ -41,7 +41,7 @@ console.log(loggedInUser);
 {
 loggedInUser[0]?.role === 'Seller' && (
   <>
-   <li><Link to="/dashboard/addproduct">Add Seller</Link></li>
+   <li><Link to="/dashboard/addproduct">Add Product</Link></li>
     <li><Link to="/dashboard/myproducts">My Products</Link></li>
   </>
   

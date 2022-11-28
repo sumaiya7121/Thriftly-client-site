@@ -7,16 +7,11 @@ import { AuthContext } from "../../contexts/AuthProvider";
 const MyOrders = () => {
     const {user,loading}=useContext(AuthContext);
 
- const url = `http://localhost:4000/bookings?email=${user?.email}`;
 
     const { data: bookings = [] ,isLoading} = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url, {
-                headers: {
-                   authorization: `bearer ${localStorage.getItem('accessToken')}` 
-                }
-            });
+            const res = await fetch(`http://localhost:4000/bookings?email=${user?.email}`);
             const data = await res.json();
             return data;
         }

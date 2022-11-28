@@ -1,26 +1,25 @@
 import React from "react";
-// import { FaCheckCircle } from "react-icons/fa";
+ import { FaCheckCircle } from "react-icons/fa";
 
 const AdvertiseCard = ({ product, setProduct }) => {
-//   const {
-//     productPhoto,
-//     name,
-//     originalPrice,
-//     resalePrice,
-//     yearOfUse,
-//     conditionOfProduct,
-//     locationOfSeller,
-//     sellerName,
-//     sellerPhoneNumber,
-//     productAddedDate,
-//     status,
-//     isSellerVerified,
-//   } = product;
+   const {
+     productPhoto,
+     name,
+     originalPrice,
+    resalePrice,
+     yearOfUse,
+     conditionOfProduct,
+     locationOfSeller,
+     sellerName,
+     sellerPhoneNumber,
+     productAddedDate,
+     status,
+     isSellerVerified,
+   } = product;
   return (
     <div>
 
-        hello
-      {/* <div className="card lg:card-side shadow-xl mb-20">
+ <div className="card lg:card-side shadow-xl mb-20">
         <img src={productPhoto} className="h-96 mt-7 ml-5" alt="" />
         <div className="card-body">
           <h2 className="text-4xl font-bold text-center md:text-left">
@@ -60,7 +59,7 @@ const AdvertiseCard = ({ product, setProduct }) => {
             )}
           </div>
         </div>
-      </div> */}
+      </div> 
     </div>
   );
 };
