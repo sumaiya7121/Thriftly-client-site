@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCx_3CcTlGFplNhzi2qG3znReNl0fwZFOc",
-  authDomain: "thriftly-cdb75.firebaseapp.com",
-  projectId: "thriftly-cdb75",
-  storageBucket: "thriftly-cdb75.appspot.com",
-  messagingSenderId: "842933891399",
-  appId: "1:842933891399:web:9dcea1f0085145cc7a9c62"
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId:process.env.REACT_APP_appId
 };
 
 // Initialize Firebase

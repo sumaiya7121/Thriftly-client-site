@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
+import Confirmation from "../../Components/Shared/Confirmation";
 import Spinner from "../../Components/Spinner/Spinner";
 
 import AdvertiseCard from "./AdvertiseCard";
@@ -39,14 +40,14 @@ const Advertise = () => {
                 setProduct={setProduct}>
               </AdvertiseCard>
             ))}
-            {/* {product && (
-            //   <BookingModal
-            //     product={product}
-            //     setProduct={setProduct}
-            //     refetch={refetch}
-            //   ></BookingModal>
-            )} */}
-          </div>
+             {product && (
+           <Confirmation
+            product={product}
+            setProduct={setProduct}
+           refetch={refetch}
+        ></Confirmation>
+            )} 
+          </div> 
         </div>
       ) : null}
     </div>
